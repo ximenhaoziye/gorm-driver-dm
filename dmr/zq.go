@@ -9,7 +9,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/nfjBill/gorm-driver-dm/dmr/util"
+	"github.com/ximenhaoziye/gorm-driver-dm/dmr/util"
 )
 
 const (
