@@ -304,11 +304,10 @@ func (m Migrator) HasIndex(value interface{}, name string) bool {
 		if idx := stmt.Schema.LookIndex(name); idx != nil {
 			name = idx.Name
 		}
-
 		return m.DB.Raw(
 			"SELECT COUNT(*) FROM USER_INDEXES WHERE TABLE_NAME = ? AND INDEX_NAME = ?",
 			m.Migrator.DB.NamingStrategy.TableName(stmt.Table),
-			m.Migrator.DB.NamingStrategy.IndexName("", name),
+			strings.ToUpper(name),
 		).Row().Scan(&count)
 	})
 
